@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FileAttachment.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PostAndServiceExeptionNew</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">FileAttachment.kt</span></div><h1>FileAttachment.kt</h1><pre class="source lang-java linenums"><span class="nc" id="L1">class FileAttachment (</span>
+<span class="nc" id="L2">    override val type: String = &quot;file&quot;,</span>
+<span class="nc" id="L3">    val file: File</span>
+) : Attachment {
+
+<span class="nc" id="L6">    data class File(</span>
+<span class="nc" id="L7">        val id: Int,</span>
+<span class="nc" id="L8">        val ownerId: Int,</span>
+<span class="nc" id="L9">        val title: String,</span>
+<span class="nc" id="L10">        val size: Int,</span>
+<span class="nc" id="L11">        val ext: String,</span>
+<span class="nc" id="L12">        val url: String,</span>
+<span class="nc" id="L13">        val date: Int,</span>
+<span class="nc" id="L14">        val type: Int,</span>
+<span class="nc" id="L15">        val preview: Preview,</span>
+    ) {
+<span class="nc" id="L17">        data class Preview(</span>
+<span class="nc" id="L18">            val photo: PhotoAttachment.Photo.Sizes,</span>
+<span class="nc" id="L19">            val graffiti: GraffitiObject,</span>
+<span class="nc" id="L20">            val audioMessage: AudioMessage</span>
+
+        ) {
+<span class="nc" id="L23">            data class GraffitiObject(</span>
+<span class="nc" id="L24">                val url: String,</span>
+<span class="nc" id="L25">                val width: Int,</span>
+<span class="nc" id="L26">                val height: Int</span>
+            )
+
+<span class="nc" id="L29">            data class AudioMessage(</span>
+<span class="nc" id="L30">                val duration: Int,</span>
+<span class="nc" id="L31">                val waveform: Array&lt;Int&gt;,</span>
+<span class="nc" id="L32">                val linkOgg: String,</span>
+<span class="nc" id="L33">                val linkMp3: String</span>
+            )
+        }
+    }
+<span class="nc" id="L37">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

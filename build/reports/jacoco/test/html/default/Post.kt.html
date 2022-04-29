@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Post.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PostAndServiceExeptionNew</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Post.kt</span></div><h1>Post.kt</h1><pre class="source lang-java linenums"><span class="fc" id="L1">data class Post(</span>
+<span class="fc" id="L2">    val id: Int,</span>
+<span class="fc" id="L3">    val ownerId: Int,</span>
+<span class="pc" id="L4">    val fromId: Int,</span>
+<span class="pc" id="L5">    val createdBy: Int,</span>
+<span class="fc" id="L6">    val date: Int,</span>
+<span class="pc" id="L7">    val text: String,</span>
+<span class="pc" id="L8">    val replyOwnerId: Int,</span>
+<span class="pc" id="L9">    val replyPostId: Int,</span>
+<span class="pc" id="L10">    val friendsOnly: Boolean,</span>
+<span class="pc" id="L11">    val comments: Comments,</span>
+<span class="pc" id="L12">    val copyright: String,</span>
+<span class="pc" id="L13">    val likes: Likes,</span>
+<span class="pc" id="L14">    val reposts: Reposts,</span>
+<span class="pc" id="L15">    val viewsCount: Int,</span>
+<span class="pc" id="L16">    val postType: String,</span>
+<span class="pc" id="L17">    val signerId: Int,</span>
+<span class="pc" id="L18">    val canPin: Boolean,</span>
+<span class="pc" id="L19">    val canDelete: Boolean,</span>
+<span class="pc" id="L20">    val canEdit: Boolean,</span>
+<span class="pc" id="L21">    val isPinned: Boolean,</span>
+<span class="pc" id="L22">    val markedAsAds: Boolean,</span>
+<span class="pc" id="L23">    val isFavorite: Boolean,</span>
+<span class="pc" id="L24">    val postponedId: Int,</span>
+<span class="pc" id="L25">    val postSource: PostSourse?,</span>
+<span class="pc" id="L26">    val geo: Geo?,</span>
+<span class="pc" id="L27">    val copyHistory: Array&lt;Reposts&gt;?,</span>
+<span class="pc" id="L28">    val attachments: Array&lt;Attachment&gt;?,</span>
+<span class="pc" id="L29">    val comment: Comment</span>
+) {
+<span class="fc" id="L31">    data class Comments(</span>
+<span class="pc" id="L32">        val count: Int,</span>
+<span class="pc" id="L33">        val canPost: Boolean,</span>
+<span class="pc" id="L34">        val groupsCanPost: Boolean,</span>
+<span class="pc" id="L35">        val canClose: Boolean,</span>
+<span class="pc" id="L36">        val canOpen: Boolean</span>
+    )
+
+<span class="fc" id="L39">    data class Reposts(</span>
+<span class="pc" id="L40">        val count: Int,</span>
+<span class="pc" id="L41">        val userReposted: Boolean</span>
+    )
+
+<span class="fc" id="L44">    data class Likes(</span>
+<span class="pc" id="L45">        val count: Int,</span>
+<span class="pc" id="L46">        val userLikes: Boolean,</span>
+<span class="pc" id="L47">        val canLike: Boolean,</span>
+<span class="pc" id="L48">        val canPublish: Boolean</span>
+    )
+
+<span class="fc" id="L51">    data class PostSourse(</span>
+<span class="pc" id="L52">        val type: String,</span>
+<span class="pc" id="L53">        val platform: String,</span>
+<span class="pc" id="L54">        val data: String,</span>
+<span class="pc" id="L55">        val uRL: String</span>
+    )
+
+<span class="fc" id="L58">    data class Geo(</span>
+<span class="pc" id="L59">        val type: String,</span>
+<span class="pc" id="L60">        val coordinates: String,</span>
+<span class="pc" id="L61">        val geoPlace: Place</span>
+    ) {
+<span class="fc" id="L63">        data class Place(</span>
+<span class="pc" id="L64">            val id: Int,</span>
+<span class="pc" id="L65">            val title: String,</span>
+<span class="pc" id="L66">            val latitude: Int,</span>
+<span class="pc" id="L67">            val created: Int,</span>
+<span class="pc" id="L68">            val icon: String,</span>
+<span class="pc" id="L69">            val checkins: Int,</span>
+<span class="pc" id="L70">            val updated: Int,</span>
+<span class="pc" id="L71">            val type: Int,</span>
+<span class="pc" id="L72">            val country: Int,</span>
+<span class="pc" id="L73">            val city: Int,</span>
+<span class="pc" id="L74">            val adress: String</span>
+        )
+    }
+
+<span class="fc" id="L78">    data class Comment(</span>
+<span class="fc" id="L79">        val postId: Int,</span>
+<span class="pc" id="L80">        val fromId: Int,</span>
+<span class="pc" id="L81">        val date: Int,</span>
+<span class="pc" id="L82">        val text: String,</span>
+<span class="pc" id="L83">        val donat: Donat,</span>
+<span class="pc" id="L84">        val replyToUser: Int,</span>
+<span class="pc" id="L85">        val replyToComment: Int,</span>
+<span class="pc" id="L86">        val attachments: Attachment,</span>
+<span class="pc" id="L87">        val parentsStack: Array&lt;Int&gt;,</span>
+<span class="pc" id="L88">        val thread: Threads</span>
+    ) {
+<span class="fc" id="L90">        data class Donat(</span>
+<span class="pc" id="L91">            val isDon: Boolean,</span>
+<span class="pc" id="L92">            val placeholder: String</span>
+        )
+
+<span class="fc" id="L95">        data class Threads(</span>
+<span class="pc" id="L96">            val count: Int,</span>
+<span class="pc" id="L97">            val items: Array&lt;Comments&gt;,</span>
+<span class="pc" id="L98">            val canPost: Boolean,</span>
+<span class="pc" id="L99">            val showReplyButton: Boolean,</span>
+<span class="pc" id="L100">            val groupsCanPost: Boolean</span>
+        )
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,1 @@
+class PostNotFoundExeption(message: String) : RuntimeException(message)

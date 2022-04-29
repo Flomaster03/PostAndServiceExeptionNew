@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="WallServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-04-29T18:25:27" hostname="DESKTOP-TPQFU3E" time="0.472">
+  <properties/>
+  <testcase name="update_postsEquals" classname="WallServiceTest" time="0.447"/>
+  <testcase name="add_PostsNotZero" classname="WallServiceTest" time="0.0"/>
+  <testcase name="shouldThrow" classname="WallServiceTest" time="0.001"/>
+  <testcase name="notShouldThrow" classname="WallServiceTest" time="0.019"/>
+  <testcase name="update_postsNotEquals" classname="WallServiceTest" time="0.001"/>
+  <system-out><![CDATA[3]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
